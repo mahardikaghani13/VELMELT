@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velmelt Cookies</title>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #ffffff; color: #11457c; }
+    header { background-color: #11457c; color: white; padding: 16px; text-align: center; font-size: 22px; font-weight: bold; position: sticky; top: 0; z-index: 1000; }
+    nav { display: flex; justify-content: center; gap: 20px; padding: 10px; background: #f5f5f5; }
+    nav a { text-decoration: none; color: #11457c; font-weight: 500; }
+    .hero { text-align: center; padding: 80px 20px 60px; }
+    .hero h1 { font-size: 40px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; color: #555; max-width: 500px; margin: 0 auto; line-height: 1.6; }
+    .btn { display: inline-block; margin-top: 25px; padding: 14px 28px; background-color: #11457c; color: white; border-radius: 10px; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    .btn:hover { background-color: #0d3560; transform: translateY(-2px); }
+    .section-title { text-align: center; margin-top: 50px; font-size: 26px; font-weight: bold; }
+    .products { padding: 30px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1000px; margin: auto; }
+    .card { border: 1px solid #eee; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 6px 15px rgba(0,0,0,0.05); transition: 0.3s; background: white; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+    .badge { display: inline-block; font-size: 12px; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px; background: #11457c; color: white; }
+    .premium { border: 2px solid #11457c; }
+    .card img { width: 100%; height: 140px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; background: #f2f2f2; }
+    .card h3 { margin: 10px 0 5px; }
+    .price { font-weight: bold; margin-bottom: 10px; }
+    .order-btn { display:inline-block; margin-top:8px; padding:10px 16px; border-radius:8px; text-decoration:none; background:#11457c; color:#fff; font-size:14px; border:none; cursor:pointer; }
+    footer { text-align: center; padding: 30px 20px; background: #11457c; color: white; margin-top: 50px; }
+    .ig-btn { display: inline-block; margin-top: 10px; padding: 10px 20px; background: white; color: #11457c; border-radius: 8px; text-decoration: none; font-weight: 500; }
+
+    /* Modal */
+    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; }
+    .modal-box { background: white; padding: 20px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; }
+    .modal textarea { width: 100%; height: 120px; margin-top: 10px; }
+    .close-btn { margin-top: 10px; padding: 8px 16px; border: none; background: #11457c; color: white; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+<header>Velmelt Cookies</header>
+<nav>
+  <a href="#">Home</a>
+  <a href="#products">Products</a>
+  <a href="#contact">Contact</a>
+</nav>
+<section class="hero">
+  <h1>Simple Cookies, Big Comfort 🍪</h1>
+  <p>Selamat datang di Velmelt! Cookies kami dibuat dengan rasa yang comforting dan cocok untuk nemenin hari-harimu — dari belajar sampai santai bareng teman.</p>
+  <a href="#products" class="btn">Lihat Menu</a>
+</section>
+
+<h2 class="section-title">Reguler</h2>
+<section id="products" class="products">
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Classic OG</h3>
+    <p class="price">Rp 5.000</p>
+    <button class="order-btn" onclick="orderProduct('Classic OG Reguler - Rp 5.000')">Order</button>
+  </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Matcha White Choco</h3>
+    <p class="price">Rp 8.000</p>
+    <button class="order-btn" onclick="orderProduct('Matcha White Choco Reguler - Rp 8.000')">Order</button>
+  </div>
+</section>
+
+<h2 class="section-title">Premium</h2>
+<section class="products">
+  <div class="card premium">
+    <span class="badge">Premium</span>
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Classic OG</h3>
+    <p class="price">Rp 14.000</p>
+    <button class="order-btn" onclick="orderProduct('Classic OG Premium - Rp 14.000')">Order</button>
+  </div>
+  <div class="card premium">
+    <span class="badge">Premium</span>
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Matcha White Choco</h3>
+    <p class="price">Rp 15.000</p>
+    <button class="order-btn" onclick="orderProduct('Matcha White Choco Premium - Rp 15.000')">Order</button>
+  </div>
+  <div class="card premium">
+    <span class="badge">Best Seller</span>
+    <img src="https://via.placeholder.com/300x200">
+    <h3>Pistachio Kunafa</h3>
+    <p class="price">Rp 18.000</p>
+    <button class="order-btn" onclick="orderProduct('Pistachio Kunafa Premium - Rp 18.000')">Order</button>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>Order sekarang via Instagram</p>
+  <a href="https://www.instagram.com/velmelt_" class="ig-btn">@velmelt_</a>
+</footer>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <p>Copy pesan ini lalu kirim ke DM 👇</p>
+    <textarea id="orderText"></textarea>
+    <button class="close-btn" onclick="closeModal()">Tutup</button>
+  </div>
+</div>
+
+<script>
+  function orderProduct(product){
+    const text = `Halo Velmelt! Aku mau order:\n- ${product}\nJumlah: ...\nNama: ...`;
+
+    document.getElementById('orderText').value = text;
+    document.getElementById('modal').style.display = 'flex';
+
+    setTimeout(()=>{
+      window.open('https://ig.me/m/velmelt_', '_blank');
+    }, 500);
+  }
+
+  function closeModal(){
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
